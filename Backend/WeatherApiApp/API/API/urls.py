@@ -20,8 +20,8 @@ from Weather import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('realtime-weather',views.Realtime),
-    path('forecast-weather', views.Forecast),
-    path('get-key/',views.ApiManager.as_view(),name='get-key'),
+    path('realtime-weather/',views.CurrentWeather.as_view(),name='current-weather'),
+    path('forecast-weather',views.Forecast.as_view(),name='forecast-weather'),
+
 
 ]

@@ -21,7 +21,7 @@ from Weather import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('realtime-weather/',views.CurrentWeather.as_view(),name='current-weather'),
-    path('forecast-weather',views.Forecast.as_view(),name='forecast-weather'),
+    path('forecast-weather/',views.Forecast.as_view(),name='forecast-weather'),
 
 
 ]

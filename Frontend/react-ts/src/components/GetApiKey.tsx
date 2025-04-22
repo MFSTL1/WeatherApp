@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router";
 export default function CurrentW() {
   const location = useLocation();
   const navigate = useNavigate();
-  const type = location.state?.type; // 👈 get 'type' from previous view
+  const type = location.state?.type; 
 
   const [apiKey, setApiKey] = useState<string>("");
 
@@ -38,8 +38,9 @@ export default function CurrentW() {
     }
   };
 
+ 
   return (
-    <div>
+    <div className="container">
       <h2>Input the API key</h2>
       <div className="CurrentW">
         <form onSubmit={handleSubmit}>

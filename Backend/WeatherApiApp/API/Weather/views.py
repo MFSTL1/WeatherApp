@@ -32,9 +32,9 @@ class CurrentWeather(APIView):
 class Forecast(APIView):
     def post(self,request):
         apikey = request.data.get('api_key')
-        link1 = f"http://api.weatherapi.com/v1/forecast.json?key={apikey}&q=Gliwice&days=7&aqi=no&alerts=no"
+        link1 = f"http://api.weatherapi.com/v1/forecast.json?key={apikey}&q=Hamburg&days=3&aqi=no&alerts=no"
 
-        link2 = f"http://api.weatherapi.com/v1/forecast.json?key={apikey}&q=Hamburg&days=7&aqi=no&alerts=no"
+        link2 = f"http://api.weatherapi.com/v1/forecast.json?key={apikey}&q=Gliwice&days=3&aqi=no&alerts=no"
         try:
             responseHamburg = requests.get(link1)
             responseHamburg.raise_for_status()

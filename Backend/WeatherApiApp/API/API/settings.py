@@ -28,7 +28,7 @@ AES_ENCRYPTION_KEY=os.getenv('AES_ENCRYPTION_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["weatherapp.com",'127.0.0.1:8000']
 
 
 # Application definition
@@ -109,9 +109,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173"
+    "http://localhost:5173",'http://localhost:3000'
 ]
-
+'''address for the incoming requests from the Frontend server'''
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 

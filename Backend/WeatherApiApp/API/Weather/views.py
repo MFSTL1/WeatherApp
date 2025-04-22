@@ -31,10 +31,13 @@ class CurrentWeather(APIView):
 
 class Forecast(APIView):
     def post(self,request):
+        ''' view for the forecast, we get the api_key sent by the user and use it in links'''
         apikey = request.data.get('api_key')
+
         link1 = f"http://api.weatherapi.com/v1/forecast.json?key={apikey}&q=Hamburg&days=3&aqi=no&alerts=no"
 
         link2 = f"http://api.weatherapi.com/v1/forecast.json?key={apikey}&q=Gliwice&days=3&aqi=no&alerts=no"
+        '''we get the data and return it to the frontend server, alongside the status code'''
         try:
             responseHamburg = requests.get(link1)
             responseHamburg.raise_for_status()

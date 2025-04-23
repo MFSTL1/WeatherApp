@@ -40,19 +40,20 @@ export default function CurrentW() {
 
  
   return (
-    <div className="container">
-      <h2>Input the API key</h2>
-      <div className="CurrentW">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="API key"
-            value={apiKey}
-            onChange={handleInputChange}
-          />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    </div>
+<div className="flex items-center justify-center min-h-screen w-full flex-col">
+  <h2 className="text-2xl font-bold mb-4">Input the API key</h2>
+  <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4">
+    <input
+      type="text"
+      placeholder="API key"
+      value={apiKey}
+      onChange={handleInputChange}
+      className="p-2 border border-gray-300 rounded"
+    />
+    <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+      Submit
+    </button>
+  </form>
+</div>
   );
 }

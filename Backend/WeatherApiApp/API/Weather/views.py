@@ -14,7 +14,7 @@ import requests
 class CurrentWeather(APIView):
     def post(self,request):
         apikey = request.data.get("api_key")
-        type = request.data.get("type")
+
 
         link1 = f"http://api.weatherapi.com/v1/current.json?key={apikey}&q=Gliwice&aqi=no";
 
@@ -31,9 +31,9 @@ class CurrentWeather(APIView):
 
 class Forecast(APIView):
     def post(self,request):
-        ''' view for the forecast, we get the api_key sent by the user and use it in links'''
-        apikey = request.data.get('api_key')
 
+        apikey = request.data.get('api_key')
+        '''view for the forecast, we get the api_key sent by the user and use it in links'''
         link1 = f"http://api.weatherapi.com/v1/forecast.json?key={apikey}&q=Hamburg&days=3&aqi=no&alerts=no"
 
         link2 = f"http://api.weatherapi.com/v1/forecast.json?key={apikey}&q=Gliwice&days=3&aqi=no&alerts=no"
@@ -44,7 +44,7 @@ class Forecast(APIView):
             responseGliwice = requests.get(link2)
             responseGliwice.raise_for_status()
             return Response({
-                "hamburg": responseHamburg.json(),    "gliwice": responseGliwice.json()}, status=status.HTTP_200_OK)
+                "hamburg": responseHamburg.json(),"gliwice": responseGliwice.json()}, status=status.HTTP_200_OK)
         except requests.RequestException as e:
             return Response({"error": str(e)})
 # Create your views here.

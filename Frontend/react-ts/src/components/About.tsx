@@ -13,7 +13,7 @@ export default function About() {
           <p className="text-box">
             To jest aplikacja wykonana w ramach rekrutacji.
             <br />
-            Autor: <strong>Bartłomiej PIłot</strong>
+            Autor: <strong>Bartłomiej Piłot</strong>
           </p>
       
           <button onClick={handleButtonClick}>Return to menu</button>

@@ -16,7 +16,7 @@ class CurrentWeather(APIView):
     def post(self,request):
         api_key = request.data.get("api_key")
 
-
+        '''we get the api_key from the request body and use it in the links to make a request to th weatherapi server'''
         link1 = f"http://api.weatherapi.com/v1/current.json?key={api_key}&q=Gliwice&aqi=no";
 
         link2 = f"http://api.weatherapi.com/v1/current.json?key={api_key}&q=Hamburg&aqi=no";
@@ -53,6 +53,7 @@ class Forecast(APIView):
 class ManageKey(APIView):
     def post(self,request):
         api_key = request.data.get('api_key')
+        '''we get the api key from the frontend server and store it in the database, the program currently allows for only one key to be stored'''
         if api_key:
             Storage.objects.update_or_create(
                name="default",
@@ -64,6 +65,7 @@ class ManageKey(APIView):
     def get(self,request):
         try:
             key_obj = Storage.objects.get(name="default")
+            '''we get the key from the database and return it to the frontend server'''
             return Response({"api_key": key_obj.api_key}, status=status.HTTP_200_OK)
         except Storage.DoesNotExist:
             return Response({"error": "API key not found"}, status=status.HTTP_404_NOT_FOUND)
